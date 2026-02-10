@@ -1,0 +1,39 @@
+//Dado o tamanho do lado de um quadrado, calcular a area e o perimetro do mesmo.
+//Sem a biblioteca math.h
+
+#include <stdio.h>
+
+int main()
+{
+    int lado, area, perimetro;
+    
+    printf("Insira o valor do lado do quadrado:\n");
+    scanf("%d", &lado);
+    
+    area = lado * lado;
+    perimetro = 4 * lado;
+    
+    printf("Area: %d\nPerimetro: %d\n", area, perimetro);
+
+    return 0;
+}
+
+//Com a biblioteca math.h
+
+#include <stdio.h>
+#include <math.h>
+
+int main()
+{
+    int lado, area, perimetro;
+    
+    printf("Insira o valor do lado do quadrado:\n");
+    scanf("%d", &lado);
+    
+    area = pow(lado, 2);
+    perimetro = 4 * lado;
+    
+    printf("Area: %d\nPerimetro: %d\n", area, perimetro);
+
+    return 0;
+}
