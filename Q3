@@ -1,0 +1,38 @@
+//Dado o tamanho do raio de uma circunferencia, calcular a area e o perímetro da mesma.
+
+//sem a biblioteca math.h
+
+#include <stdio.h>
+
+int main()
+{
+    float raio, area;
+    
+    printf("Insira o raio da circunferência: \n");
+    scanf("%f", &raio);
+    
+    area = 2 * 3.14 * raio * raio;
+    
+    printf("A area do circulo eh: %.4f", area);
+
+    return 0;
+}
+
+//com a biblioteca math.h
+
+#include <stdio.h>
+#include <math.h>
+
+int main()
+{
+    float raio, area;
+    
+    printf("Insira o raio da circunferência: \n");
+    scanf("%f", &raio);
+    
+    area = M_PI * pow(raio, 2);
+    
+    printf("A area do circulo eh: %.4f", area);
+
+    return 0;
+}
