@@ -1,0 +1,18 @@
+//Ler dois numeros inteiros e exibir o quociente e o resto da divisao inteira entre eles.
+
+#include <stdio.h>
+
+int main()
+{
+    int numerador, denominador;
+    
+    printf("Insira dois numeros (numerador e denominador, respectivamente): \n");
+    scanf("%d %d", &numerador, &denominador);
+    
+    int quociente = numerador / denominador;
+    int resto = numerador % denominador;
+    
+    printf("O quociente eh: %d\nO resto eh: %d\n", quociente, resto);
+
+    return 0;
+}
