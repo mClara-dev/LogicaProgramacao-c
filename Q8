@@ -1,0 +1,15 @@
+// Dado que a formula para conversao de Fahrenheit para Celsius eh C = 5/9 (F – 32), leia um valor de temperatura em Fahrenheit converta-o para Celsius
+#include <stdio.h>
+
+int main()
+{
+    float Fah;
+    printf("Insira o valor em Fahrenheit:\n");
+    scanf("%f", &Fah);
+    
+    float Cel = (5.0/9.0) * (Fah - 32);
+    
+    printf("Temperatura convertida em Celsius: %f\n", Cel);
+
+    return 0;
+}
