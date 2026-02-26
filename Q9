@@ -1,0 +1,42 @@
+//Faça um algoritmo que calcule e apresente o valor do volume de uma lata de oleo, dado seu raio e sua altura.
+//observacao: o volume do oleo eh calculado da mesma forma que o da agua, mas a densidade/peso eh diferente
+
+#include <stdio.h>
+#include <math.h>
+
+#ifndef M_PI
+    #define M_PI 3.14159265358979323846
+#endif
+
+int main() {
+    float raio, altura;
+    int opcao;
+    char *unidade; 
+
+    printf("Selecione a unidade de medida:\n");
+    printf("1 - Metros (m)\n");
+    printf("2 - Centimetros (cm)\n");
+    printf("3 - Milimetros (mm)\n");
+    scanf("%d", &opcao);
+
+    switch(opcao) {
+        case 1: unidade = "m3";  break;
+        case 2: unidade = "cm3"; break;
+        case 3: unidade = "mm3"; break;
+        default: unidade = "unidades cubicas";
+    }
+
+    printf("Insira o raio e a altura: ");
+    scanf("%f %f", &raio, &altura);
+
+    if(raio < 0 || altura < 0) {
+        printf("Erro, dados invalidos!\n");
+        return 1;
+    }
+
+    float volume = M_PI * pow(raio, 2.0) * altura;
+
+    printf("\nO volume da lata eh: %.2f %s\n", volume, unidade);
+
+    return 0;
+}
