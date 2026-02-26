@@ -21,3 +21,59 @@ int main()
 }
 
 //versao mais robusta
+#include <stdio.h>
+#include <stdbool.h>
+#define ANO_REFERENCIA 2026
+
+bool eh_bissexto(int ano){
+    return (ano % 4 == 0 && ano % 100 != 0) || (ano % 400 == 0);
+}
+
+int main(){
+    
+    int idade;
+    
+    printf("Insira a idade em dias: \n");
+    scanf("%d", &idade);
+    
+    int dias_restantes = idade;
+    int anos = 0, meses = 0, dias = 0;
+    int dias_nos_meses[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+    
+    int ano_atualizado = ANO_REFERENCIA -1;
+    while(true){
+        int dias_no_ano = (eh_bissexto(ano_atualizado) ? 366 : 365);
+        if(dias_restantes >= dias_no_ano){
+            dias_restantes -= dias_no_ano;
+            anos++;
+            ano_atualizado--;
+        }else break;
+    }
+    
+    for(int i = 0; i < 12; i++){
+        int dias_nesse_mes = dias_nos_meses[i];
+        
+        if(i == 1 && eh_bissexto(ano_atualizado)) dias_nesse_mes = 29;
+        
+        if(dias_restantes >= dias_nesse_mes){
+            dias_restantes -= dias_nesse_mes;
+            meses++;
+        }else break;
+    }
+    
+    dias = dias_restantes;
+    
+    if(anos > 0){
+        anos > 1 ? printf("%d anos", anos) : printf("%d ano", anos);
+        meses > 0 || dias > 0 ? printf(", "): printf("\n");
+    }
+    if(meses > 0){
+        meses > 1 ? printf("%d meses", meses) : printf("%d mes", meses);
+        dias > 0 ? printf(" e ") : printf("\n");
+    }
+    if(dias > 0){
+        dias > 1 ? printf("%d dias\n", dias) : printf("%d dia\n", dias);
+    }
+
+    return 0;
+}
